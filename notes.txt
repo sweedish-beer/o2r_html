@@ -1,2 +1,13 @@
-link to youtube video: 
-https://www.youtube.com/watch?v=4tZA5FHB4pw&ab_channel=One2remember
+//link to youtube video: 
+
+    https://www.youtube.com/watch?v=4tZA5FHB4pw&ab_channel=One2remember
+
+
+
+// snippet of contact info div
+
+ <div class="contact-info">
+          <p>admin@o2r.events</p>
+          <p>info@o2revents.com</p>
+          <p>+357 96 512500</p>
+        </div>
