@@ -13,6 +13,10 @@
       font-family: Arial, sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: #1a1a1a;
       color: white;
@@ -102,6 +106,9 @@
       font-weight: bold;
       min-width: 120px;
       flex-shrink: 0;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
     }
 
     .category-button.purple {
@@ -110,6 +117,14 @@
 
     .category-button.dark {
       background-color: #333;
+    }
+    
+    .category-button.dark:hover {
+      background-color: #b960b0;
+    }
+    
+    .category-button.active {
+      background-color: #b960b0;
     }
 
     /* Heart is section */
@@ -141,11 +156,12 @@
       position: relative;
       border-radius: 10px;
       overflow: hidden;
+      aspect-ratio: 1/1;
     }
 
     .service-item img {
       width: 100%;
-      height: 180px;
+      height: 100%;
       object-fit: cover;
     }
 
@@ -561,58 +577,58 @@
   <section class="category-buttons">
     <div class="container">
       <div class="category-buttons">
-        <div class="category-button purple">MICE</div>
-        <div class="category-button dark">EVENT</div>
-        <div class="category-button dark">BOOKING</div>
-        <div class="category-button dark">CREATIVITY</div>
-        <div class="category-button dark">PRIVATE EVENT</div>
+        <a href="#mice-section" class="category-button purple" data-section="mice-section">MICE</a>
+        <a href="#event-section" class="category-button dark" data-section="event-section">EVENT</a>
+        <a href="#booking-section" class="category-button dark" data-section="booking-section">BOOKING</a>
+        <a href="#creativity-section" class="category-button dark" data-section="creativity-section">CREATIVITY</a>
+        <a href="#private-section" class="category-button dark" data-section="private-section">PRIVATE EVENT</a>
       </div>
     </div>
   </section>
 
-  <section class="heart-section">
+  <section id="mice-section" class="heart-section">
     <div class="container">
       <h2 class="section-header">
         <span class="teal">OUR HEART IS</span> <span class="white">MICE</span>
       </h2>
       <div class="services-grid">
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Conferences">
+          <img src="mice-heart1.png" alt="Conferences" onerror="this.src='https://via.placeholder.com/280x280?text=Conferences'">
           <div class="overlay purple">Conferences</div>
         </div>
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Seminars">
+          <img src="mice-heart2.png" alt="Seminars" onerror="this.src='https://via.placeholder.com/280x280?text=Seminars'">
           <div class="overlay teal">Seminars</div>
         </div>
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Trainings">
+          <img src="mice-heart3.png" alt="Trainings" onerror="this.src='https://via.placeholder.com/280x280?text=Trainings'">
           <div class="overlay purple">Trainings</div>
         </div>
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Exhibitions">
+          <img src="mice-heart4.png" alt="Exhibitions" onerror="this.src='https://via.placeholder.com/280x280?text=Exhibitions'">
           <div class="overlay teal">Visiting exhibitions</div>
         </div>
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Road Show">
+          <img src="mice-heart5.png" alt="Road Show" onerror="this.src='https://via.placeholder.com/280x280?text=Road+Show'">
           <div class="overlay teal">Road Show</div>
         </div>
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Launches">
+          <img src="mice-heart6.png" alt="Launches" onerror="this.src='https://via.placeholder.com/280x280?text=Launches'">
           <div class="overlay purple">Launches</div>
         </div>
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Support">
+          <img src="mice-heart7.png" alt="Support" onerror="this.src='https://via.placeholder.com/280x280?text=Online+%26+Travel'">
           <div class="overlay teal">Online &Travel support</div>
         </div>
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Incentives">
+          <img src="mice-heart8.png" alt="Incentives" onerror="this.src='https://via.placeholder.com/280x280?text=Incentives'">
           <div class="overlay purple">Incentives</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="soul-section">
+  <section id="event-section" class="soul-section">
     <div class="container">
       <h2 class="section-header">
         <span class="teal">OUR SOUL IS</span> <span class="white">EVENT</span>
@@ -676,7 +692,7 @@
     </div>
   </section>
 
-  <section class="mind-section">
+  <section id="booking-section" class="mind-section">
     <div class="container">
       <div class="mind-section">
         <div class="mind-content">
@@ -695,7 +711,7 @@
     </div>
   </section>
 
-  <section class="forte-section">
+  <section id="creativity-section" class="forte-section">
     <div class="container">
       <h2 class="section-header">
         <span class="teal">OUR FORTE IS</span> <span class="white">CREATIVITY</span>
@@ -765,42 +781,42 @@
     </div>
   </section>
 
-  <section class="pleasure-section">
+  <section id="private-section" class="pleasure-section">
     <div class="container">
       <h2 class="section-header">
         <span class="teal">OUR PLEASURE IS</span> <span class="white">PRIVATE</span>
       </h2>
       <div class="services-grid">
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Conferences">
+          <img src="https://via.placeholder.com/280x280" alt="Conferences">
           <div class="overlay purple">Conferences</div>
         </div>
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Seminars">
+          <img src="https://via.placeholder.com/280x280" alt="Seminars">
           <div class="overlay teal">Seminars</div>
         </div>
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Trainings">
+          <img src="https://via.placeholder.com/280x280" alt="Trainings">
           <div class="overlay purple">Trainings</div>
         </div>
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Exhibitions">
+          <img src="https://via.placeholder.com/280x280" alt="Exhibitions">
           <div class="overlay teal">Visiting exhibitions</div>
         </div>
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Road Show">
+          <img src="https://via.placeholder.com/280x280" alt="Road Show">
           <div class="overlay teal">Road Show</div>
         </div>
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Launches">
+          <img src="https://via.placeholder.com/280x280" alt="Launches">
           <div class="overlay purple">Launches</div>
         </div>
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Support">
+          <img src="https://via.placeholder.com/280x280" alt="Support">
           <div class="overlay teal">Online &Travel support</div>
         </div>
         <div class="service-item">
-          <img src="https://via.placeholder.com/280x180" alt="Incentives">
+          <img src="https://via.placeholder.com/280x280" alt="Incentives">
           <div class="overlay purple">Incentives</div>
         </div>
       </div>
@@ -868,14 +884,56 @@
   </footer>
 
   <script>
-    // Mobile menu toggle
+    // Mobile menu toggle and category buttons
     document.addEventListener('DOMContentLoaded', function() {
       const menuToggle = document.querySelector('.menu-toggle');
       const navMenu = document.querySelector('.nav-menu');
+      const categoryButtons = document.querySelectorAll('.category-button');
       
+      // Mobile menu toggle
       menuToggle.addEventListener('click', function() {
         navMenu.classList.toggle('active');
       });
+      
+      // Set active category button based on current hash
+      function setActiveButton() {
+        const hash = window.location.hash || '#mice-section';
+        
+        // Remove active class from all buttons
+        categoryButtons.forEach(button => {
+          button.classList.remove('active', 'purple');
+          button.classList.add('dark');
+        });
+        
+        // Add active class to current button
+        categoryButtons.forEach(button => {
+          if (button.getAttribute('href') === hash) {
+            button.classList.add('active', 'purple');
+            button.classList.remove('dark');
+          }
+        });
+      }
+      
+      // Handle category button clicks
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          // Set active state
+          categoryButtons.forEach(btn => {
+            btn.classList.remove('active', 'purple');
+            btn.classList.add('dark');
+          });
+          this.classList.add('active', 'purple');
+          this.classList.remove('dark');
+          
+          // Smooth scroll handled by CSS (scroll-behavior: smooth)
+        });
+      });
+      
+      // Handle initial page load
+      setActiveButton();
+      
+      // Handle hash changes
+      window.addEventListener('hashchange', setActiveButton);
     });
   </script>
 </body>
