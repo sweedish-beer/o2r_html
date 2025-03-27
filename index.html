@@ -242,6 +242,157 @@
       overflow: hidden;
     }
 
+    /* Responsive Carousel Styles */
+.carousel-section {
+  width: 100%;
+  margin: 40px 0;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Hide radio buttons */
+.carousel-container input {
+  display: none;
+}
+
+.carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 500%; /* 100% * number of slides */
+}
+
+.carousel-slide {
+  width: 20%; /* 100% / number of slides */
+  flex-shrink: 0;
+  padding: 0 1%; /* Space between slides */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  max-height: 50vh; /* Limit height to 50% of viewport height */
+  object-fit: contain;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #555; /* Gray for inactive */
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Slide positioning based on selected radio */
+#slide1:checked ~ .carousel-wrapper .carousel-track {
+  transform: translateX(0%);
+}
+#slide2:checked ~ .carousel-wrapper .carousel-track {
+  transform: translateX(-20%);
+}
+#slide3:checked ~ .carousel-wrapper .carousel-track {
+  transform: translateX(-40%);
+}
+#slide4:checked ~ .carousel-wrapper .carousel-track {
+  transform: translateX(-60%);
+}
+#slide5:checked ~ .carousel-wrapper .carousel-track {
+  transform: translateX(-80%);
+}
+
+/* Active slide gets slightly larger */
+#slide1:checked ~ .carousel-wrapper .carousel-track .carousel-slide:nth-child(1),
+#slide2:checked ~ .carousel-wrapper .carousel-track .carousel-slide:nth-child(2),
+#slide3:checked ~ .carousel-wrapper .carousel-track .carousel-slide:nth-child(3),
+#slide4:checked ~ .carousel-wrapper .carousel-track .carousel-slide:nth-child(4),
+#slide5:checked ~ .carousel-wrapper .carousel-track .carousel-slide:nth-child(5) {
+  transform: scale(1.05);
+}
+
+/* Active dot becomes white */
+#slide1:checked ~ .carousel-dots label:nth-child(1),
+#slide2:checked ~ .carousel-dots label:nth-child(2),
+#slide3:checked ~ .carousel-dots label:nth-child(3),
+#slide4:checked ~ .carousel-dots label:nth-child(4),
+#slide5:checked ~ .carousel-dots label:nth-child(5) {
+  background-color: white;
+}
+
+/* Media queries for responsive behavior */
+@media (max-width: 768px) {
+  .carousel-track {
+    width: 300%; /* Show 3 slides at once (visible + partial) */
+  }
+  
+  .carousel-slide {
+    width: 33.333%; /* 100% / 3 */
+  }
+  
+  /* Adjust the translation percentages */
+  #slide1:checked ~ .carousel-wrapper .carousel-track {
+    transform: translateX(0%);
+  }
+  #slide2:checked ~ .carousel-wrapper .carousel-track {
+    transform: translateX(-33.333%);
+  }
+  #slide3:checked ~ .carousel-wrapper .carousel-track {
+    transform: translateX(-66.666%);
+  }
+  #slide4:checked ~ .carousel-wrapper .carousel-track {
+    transform: translateX(-100%);
+  }
+  #slide5:checked ~ .carousel-wrapper .carousel-track {
+    transform: translateX(-133.333%);
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-track {
+    width: 200%; /* Show 2 slides at once (1 full + 1 partial) */
+  }
+  
+  .carousel-slide {
+    width: 50%; /* 100% / 2 */
+  }
+  
+  /* Adjust the translation percentages */
+  #slide1:checked ~ .carousel-wrapper .carousel-track {
+    transform: translateX(0%);
+  }
+  #slide2:checked ~ .carousel-wrapper .carousel-track {
+    transform: translateX(-50%);
+  }
+  #slide3:checked ~ .carousel-wrapper .carousel-track {
+    transform: translateX(-100%);
+  }
+  #slide4:checked ~ .carousel-wrapper .carousel-track {
+    transform: translateX(-150%);
+  }
+  #slide5:checked ~ .carousel-wrapper .carousel-track {
+    transform: translateX(-200%);
+  }
+}
+
     .project-card.purple {
       background-color: #b960b0;
     }
@@ -840,7 +991,7 @@
         </div>
         <div class="hero-image">
           <div class="hero-card">
-            <img src="https://via.placeholder.com/300x200" alt="ONE2REMEMBER Logo" width="300">
+            <img src="images/o2r-logocard300x200.png" alt="ONE2REMEMBER Logo" width="300">
           </div>
         </div>
       </div>
@@ -866,37 +1017,43 @@
     </div>
   </section>
 
-  <section class="services">
-    <div class="container">
-      <h2 class="section-title">SERVICES</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <img src="https://via.placeholder.com/200x300" alt="MICE">
-          <div class="service-title">O2MICE</div>
-        </div>
-        <div class="service-card">
-          <img src="https://via.placeholder.com/200x300" alt="CREATIVE">
-          <div class="service-title">O2CREATIVE</div>
-        </div>
-        <div class="service-card">
-          <img src="https://via.placeholder.com/200x300" alt="EVENT">
-          <div class="service-title">O2EVENT</div>
-        </div>
-        <div class="service-card">
-          <img src="https://via.placeholder.com/200x300" alt="BOOKING">
-          <div class="service-title">O2BOOKING</div>
-        </div>
-        <div class="service-card">
-          <img src="https://via.placeholder.com/200x300" alt="PRIVATE">
-          <div class="service-title">O2PRIVATE</div>
+  <section class="carousel-section">
+    <div class="carousel-container">
+      <!-- Hidden radio buttons to control the carousel -->
+      <input type="radio" name="slider" id="slide1" checked>
+      <input type="radio" name="slider" id="slide2">
+      <input type="radio" name="slider" id="slide3">
+      <input type="radio" name="slider" id="slide4">
+      <input type="radio" name="slider" id="slide5">
+      
+      <!-- The slides -->
+      <div class="carousel-wrapper">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="images/O2MICE.png" alt="O2 MICE">
+          </div>
+          <div class="carousel-slide">
+            <img src="images/O2EVENT.png" alt="O2 EVENT">
+          </div>
+          <div class="carousel-slide">
+            <img src="images/O2BOOKING.png" alt="O2 BOOKING">
+          </div>
+          <div class="carousel-slide">
+            <img src="images/O2CREATIVE.png" alt="O2 CREATIVE">
+          </div>
+          <div class="carousel-slide">
+            <img src="images/O2PRIVATE.png" alt="O2 PRIVATE">
+          </div>
         </div>
       </div>
-      <div class="dots-nav">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
+      
+      <!-- Navigation dots (always centered below) -->
+      <div class="carousel-dots">
+        <label for="slide1" class="dot"></label>
+        <label for="slide2" class="dot"></label>
+        <label for="slide3" class="dot"></label>
+        <label for="slide4" class="dot"></label>
+        <label for="slide5" class="dot"></label>
       </div>
     </div>
   </section>
@@ -1022,74 +1179,7 @@
     </div>
   </section>
 
-  <section class="best-projects">
-    <div class="container">
-      <h2>OUR BEST PROJECTS</h2>
-      <div class="services-grid-2">
-        <div class="service-item">
-          <img src="images/conferences.png" alt="Conferences">
-          <div class="overlay purple">Conferences</div>
-        </div>
-        <div class="service-item">
-          <img src="images/seminars.png" alt="Seminars">
-          <div class="overlay teal">Seminars</div>
-        </div>
-        <div class="service-item">
-          <img src="images/trainings.png" alt="Trainings">
-          <div class="overlay purple">Trainings</div>
-        </div>
-        <div class="service-item">
-          <img src="images/exhibitions.png" alt="Exhibitions">
-          <div class="overlay teal">Visiting exhibitions</div>
-        </div>
-      </div>
-
-      <div class="project-headline">
-        <div class="project-headline-image">
-          <img src="images/project1.png" alt="Project">
-        </div>
-        <div class="project-headline-content">
-          <div class="dots-indicator">
-            <div class="colored-dot teal"></div>
-            <div class="colored-dot purple"></div>
-          </div>
-          <h3>PROJECT HEADLINE</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
-          <a href="#" class="read-more">Read more</a>
-        </div>
-      </div>
-
-      <div class="project-headline">
-        <div class="project-headline-image">
-          <img src="images/project2.png" alt="Project">
-        </div>
-        <div class="project-headline-content">
-          <div class="dots-indicator">
-            <div class="colored-dot teal"></div>
-            <div class="colored-dot purple"></div>
-          </div>
-          <h3>PROJECT HEADLINE</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
-          <a href="#" class="read-more">Read more</a>
-        </div>
-      </div>
-
-      <div class="project-headline">
-        <div class="project-headline-image">
-          <img src="images/project3.png" alt="Project">
-        </div>
-        <div class="project-headline-content">
-          <div class="dots-indicator">
-            <div class="colored-dot teal"></div>
-            <div class="colored-dot purple"></div>
-          </div>
-          <h3>PROJECT HEADLINE</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
-          <a href="#" class="read-more">Read more</a>
-        </div>
-      </div>
-    </div>
-  </section>
+ 
 
   <section class="showreel">
     <div class="container">
