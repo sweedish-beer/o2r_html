@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | ONE2REMEMBER Events</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #1a1a1a;
+      color: white;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+    }
+
+    /* Header styles */
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      position: relative;
+    }
+
+    nav ul li a.active::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      bottom: -5px;
+      left: 0;
+    }
+
+    .button {
+      background-color: #b960b0;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    /* Page title */
+    .page-title {
+      text-align: center;
+      padding: 60px 0 40px;
+    }
+    
+    .page-title h1 {
+      font-size: 42px;
+      text-transform: uppercase;
+    }
+
+    /* Perfect Event Section */
+    .perfect-event {
+      margin: 40px 0 80px;
+    }
+
+    .perfect-event-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .event-step {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .event-step-content {
+      flex: 2;
+    }
+
+    .event-step h3 {
+      color: #b960b0;
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    .event-step.teal h3 {
+      color: #4ebfb4;
+    }
+
+    .event-image {
+      flex: 1;
+    }
+
+    .event-image img {
+      width: 100%;
+      border-radius: 10px;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Projects section */
+    .best-projects {
+      margin: 80px 0;
+    }
+
+    .section-title {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-bottom: 50px;
+    }
+
+    .project-card {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 180px;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-card .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(185, 96, 176, 0.9);
+      padding: 10px;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .project-card .overlay.teal {
+      background-color: rgba(78, 191, 180, 0.9);
+    }
+
+    /* Featured projects */
+    .featured-project {
+      display: flex;
+      background-color: #333;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .featured-image {
+      flex: 0 0 180px;
+    }
+
+    .featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .featured-content {
+      flex: 1;
+      padding: 20px;
+      position: relative;
+    }
+
+    .dots-indicator {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+    }
+
+    .colored-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-left: 5px;
+    }
+
+    .colored-dot.teal {
+      background-color: #4ebfb4;
+    }
+
+    .colored-dot.purple {
+      background-color: #b960b0;
+    }
+
+    .colored-dot.white {
+      background-color: white;
+    }
+
+    .featured-content h3 {
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .featured-content p {
+      color: #ccc;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .read-more {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    /* Showreel section */
+    .showreel {
+      margin: 80px 0;
+      position: relative;
+    }
+
+    .showreel h2 {
+      font-size: 64px;
+      font-weight: 900;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+    
+    .showreel-subtitle {
+      font-size: 64px;
+      font-weight: 900;
+      text-align: center;
+      margin-top: -20px;
+      margin-bottom: 30px;
+    }
+
+    .showreel-content {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 300px;
+    }
+
+    .showreel-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background-color: rgba(185, 96, 176, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .play-button span {
+      display: inline-block;
+      border-style: solid;
+      border-width: 15px 0 15px 25px;
+      border-color: transparent transparent transparent white;
+      margin-left: 5px;
+    }
+
+    .watch-me {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Contact form */
+    .contact-form {
+      margin: 80px 0;
+      background-color: #333;
+      border-radius: 10px;
+      padding: 30px;
+      position: relative;
+    }
+
+    .contact-title {
+      color: #4ebfb4;
+      margin-bottom: 10px;
+    }
+
+    .contact-subtitle {
+      color: white;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .form-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .textarea-field {
+      grid-column: span 2;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 10px;
+      background-color: transparent;
+      border: 1px solid #4ebfb4;
+      border-radius: 5px;
+      color: white;
+    }
+
+    textarea.form-input {
+      height: 150px;
+      resize: none;
+    }
+
+    .contact-info {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #4ebfb4;
+    }
+
+    .contact-info p {
+      margin-bottom: 5px;
+    }
+
+    .submit-button {
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      float: right;
+    }
+
+    .contact-dots {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+    }
+
+    .contact-form .logo {
+      margin-top: 20px;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      padding: 20px 0;
+      border-top: 1px solid #333;
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .perfect-event-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      
+      .featured-project {
+        flex-direction: column;
+      }
+      
+      .featured-image {
+        height: 200px;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-fields {
+        grid-template-columns: 1fr;
+      }
+      
+      .textarea-field {
+        grid-column: span 1;
+      }
+      
+      .showreel h2 {
+        font-size: 42px;
+      }
+      
+      .showreel-subtitle {
+        font-size: 42px;
+      }
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background-color: #1a1a1a;
+        flex-direction: column;
+        padding: 20px;
+        border-top: 1px solid #333;
+        z-index: 1000;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-menu li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="nav-container">
+        <a href="index.html" class="logo">ONE2REMEMBER</a>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.html">Main</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="menu-toggle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 12H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 6H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 18H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </nav>
+        <a href="contacts.html" class="button">Message</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-title">
+    <div class="container">
+      <h1>OUR PERFECT EVENT</h1>
+    </div>
+  </div>
+
+  <section class="perfect-event">
+    <div class="container">
+      <div class="perfect-event-grid">
+        <div class="perfect-event-column">
+          <div class="event-step teal">
+            <div class="event-step-content">
+              <h3>Immerse</h3>
+              <p>Idea creation</p>
+            </div>
+          </div>
+          <div class="event-step">
+            <div class="event-step-content">
+              <h3>Concept development</h3>
+              <p>Sketching, blueprint</p>
+            </div>
+          </div>
+          <div class="event-step teal">
+            <div class="event-step-content">
+              <h3>Event architecture</h3>
+              <p>Scriptwriting, modeling</p>
+            </div>
+          </div>
+        </div>
+        <div class="perfect-event-column">
+          <div class="event-step">
+            <div class="event-step-content">
+              <h3>Action</h3>
+              <p>Live event creation</p>
+            </div>
+          </div>
+          <div class="event-step teal">
+            <div class="event-step-content">
+              <h3>Emotion</h3>
+              <p>Feedback from Client</p>
+            </div>
+          </div>
+          <div class="event-step">
+            <div class="event-step-content">
+              <h3>Post-production</h3>
+              <p>Our experience in your heart</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="event-image">
+        <img src="https://source.unsplash.com/random/1200x300/?event" alt="Perfect Event">
+      </div>
+    </div>
+  </section>
+
+  <section class="best-projects">
+    <div class="container">
+      <h2 class="section-title">OUR BEST PROJECTS</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="https://source.unsplash.com/random/300x180/?conference" alt="Conferences">
+          <div class="overlay">Conferences</div>
+        </div>
+        <div class="project-card">
+          <img src="https://source.unsplash.com/random/300x180/?seminar" alt="Seminars">
+          <div class="overlay teal">Seminars</div>
+        </div>
+        <div class="project-card">
+          <img src="https://source.unsplash.com/random/300x180/?training" alt="Trainings">
+          <div class="overlay">Trainings</div>
+        </div>
+        <div class="project-card">
+          <img src="https://source.unsplash.com/random/300x180/?exhibition" alt="Exhibitions">
+          <div class="overlay teal">Exhibitions</div>
+        </div>
+      </div>
+
+      <div class="featured-project">
+        <div class="featured-image">
+          <img src="https://source.unsplash.com/random/180x180/?concert" alt="Project">
+        </div>
+        <div class="featured-content">
+          <div class="dots-indicator">
+            <div class="colored-dot teal"></div>
+            <div class="colored-dot purple"></div>
+          </div>
+          <h3>PROJECT HEADLINE</h3>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+          <a href="#" class="read-more">Read more</a>
+        </div>
+      </div>
+
+      <div class="featured-project">
+        <div class="featured-image">
+          <img src="https://source.unsplash.com/random/180x180/?business-conference" alt="Project">
+        </div>
+        <div class="featured-content">
+          <div class="dots-indicator">
+            <div class="colored-dot teal"></div>
+            <div class="colored-dot purple"></div>
+          </div>
+          <h3>PROJECT HEADLINE</h3>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+          <a href="#" class="read-more">Read more</a>
+        </div>
+      </div>
+
+      <div class="featured-project">
+        <div class="featured-image">
+          <img src="https://source.unsplash.com/random/180x180/?event" alt="Project">
+        </div>
+        <div class="featured-content">
+          <div class="dots-indicator">
+            <div class="colored-dot teal"></div>
+            <div class="colored-dot purple"></div>
+          </div>
+          <h3>PROJECT HEADLINE</h3>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+          <a href="#" class="read-more">Read more</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="showreel">
+    <div class="container">
+      <h2>SHOW</h2>
+      <div class="showreel-subtitle">REEL</div>
+      <div class="showreel-content">
+        <img src="https://source.unsplash.com/random/1200x300/?crowd" alt="Showreel">
+        <div class="play-button">
+          <span></span>
+        </div>
+        <div class="watch-me">WATCH ME</div>
+        <div class="dots-indicator" style="position: absolute; top: 20px; right: 20px;">
+          <div class="colored-dot teal"></div>
+          <div class="colored-dot purple"></div>
+          <div class="colored-dot white"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-form">
+        <div class="contact-dots">
+          <div class="colored-dot teal"></div>
+          <div class="colored-dot purple"></div>
+          <div class="colored-dot white"></div>
+        </div>
+        <h3 class="contact-title">YOU GOT EXCITED?</h3>
+        <h3 class="contact-subtitle">LET'S DO IT TOGETHER!</h3>
+        
+        <div class="form-fields">
+          <div>
+            <input type="text" class="form-input" placeholder="Your name">
+          </div>
+          <div>
+            <input type="email" class="form-input" placeholder="Your email">
+          </div>
+          <div class="textarea-field">
+            <textarea class="form-input" placeholder="Your message"></textarea>
+          </div>
+        </div>
+        
+        <div class="contact-info">
+          <p>ceo@o2events.com</p>
+          <p>info@o2events.com</p>
+          <p>+357 96 51250</p>
+        </div>
+        
+        <a href="#" class="logo">ONE2REMEMBER</a>
+        
+        <button class="submit-button">SEND</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 ONE2REMEMBER Events. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+      
+      menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>

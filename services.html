@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - ONE2REMEMBER Events</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #1a1a1a;
+      color: white;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+    }
+
+    /* Header styles */
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      position: relative;
+    }
+
+    nav ul li a.active::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      bottom: -5px;
+      left: 0;
+    }
+
+    .button {
+      background-color: #b960b0;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    /* Category buttons */
+    .category-buttons {
+      display: flex;
+      gap: 15px;
+      margin: 40px 0;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .category-button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      min-width: 120px;
+      flex-shrink: 0;
+    }
+
+    .category-button.purple {
+      background-color: #b960b0;
+    }
+
+    .category-button.dark {
+      background-color: #333;
+    }
+
+    /* Heart is section */
+    .heart-section {
+      margin: 80px 0;
+    }
+
+    .section-header {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .section-header .teal {
+      color: #4ebfb4;
+    }
+
+    .section-header .white {
+      color: white;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .service-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .service-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .service-item .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(185, 96, 176, 0.9);
+      padding: 10px;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .service-item .overlay.teal {
+      background-color: rgba(78, 191, 180, 0.9);
+    }
+
+    /* Soul is section */
+    .soul-section {
+      margin: 80px 0;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .event-card {
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .event-card.teal {
+      background-color: #4ebfb4;
+    }
+
+    .event-card.purple {
+      background-color: #b960b0;
+    }
+
+    .event-card.dark {
+      background-color: #333;
+    }
+
+    .event-card h3 {
+      font-size: 24px;
+      padding: 20px 20px 10px 20px;
+    }
+
+    .event-card ul {
+      list-style: none;
+      padding: 0 20px 20px 20px;
+    }
+
+    .event-card ul li {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .event-card ul li::before {
+      content: "•";
+      margin-right: 8px;
+    }
+
+    .event-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .dots-indicator {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+    }
+
+    .colored-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-left: 5px;
+    }
+
+    .colored-dot.teal {
+      background-color: #4ebfb4;
+    }
+
+    .colored-dot.purple {
+      background-color: #b960b0;
+    }
+
+    .colored-dot.white {
+      background-color: white;
+    }
+
+    /* Mind is section */
+    .mind-section {
+      margin: 80px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .mind-content {
+      flex: 1;
+      padding-right: 30px;
+    }
+
+    .mind-image {
+      flex: 1;
+    }
+
+    .mind-image img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .read-more-button {
+      background-color: #b960b0;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+    }
+
+    /* Forte is section */
+    .forte-section {
+      margin: 80px 0;
+    }
+
+    .creativity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .creativity-item {
+      background-color: #333;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .creativity-icon {
+      width: 50px;
+      height: 50px;
+      background-color: #b960b0;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    .creativity-icon.teal {
+      background-color: #4ebfb4;
+    }
+
+    /* Pleasure is section */
+    .pleasure-section {
+      margin: 80px 0;
+    }
+
+    /* Showreel section */
+    .showreel {
+      margin: 80px 0;
+      position: relative;
+    }
+
+    .showreel h2 {
+      font-size: 64px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .showreel-content {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 300px;
+    }
+
+    .showreel-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background-color: rgba(185, 96, 176, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .play-button span {
+      display: inline-block;
+      border-style: solid;
+      border-width: 15px 0 15px 25px;
+      border-color: transparent transparent transparent white;
+      margin-left: 5px;
+    }
+
+    .watch-me {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Contact form */
+    .contact-form {
+      margin: 80px 0;
+      background-color: #333;
+      border-radius: 10px;
+      padding: 30px;
+      position: relative;
+    }
+
+    .contact-title {
+      color: #4ebfb4;
+      margin-bottom: 10px;
+    }
+
+    .contact-subtitle {
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .form-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .textarea-field {
+      grid-column: span 2;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 10px;
+      background-color: transparent;
+      border: 1px solid #4ebfb4;
+      border-radius: 5px;
+      color: white;
+    }
+
+    textarea.form-input {
+      height: 150px;
+      resize: none;
+    }
+
+    .contact-info {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #4ebfb4;
+    }
+
+    .contact-info p {
+      margin-bottom: 5px;
+    }
+
+    .submit-button {
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      float: right;
+    }
+
+    .contact-dots {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+    }
+
+    .contact-form .logo {
+      margin-top: 20px;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      padding: 20px 0;
+      border-top: 1px solid #333;
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .event-grid, .creativity-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .mind-section {
+        flex-direction: column;
+      }
+
+      .mind-content {
+        padding-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .services-grid, .event-grid, .creativity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-fields {
+        grid-template-columns: 1fr;
+      }
+
+      .textarea-field {
+        grid-column: span 1;
+      }
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background-color: #1a1a1a;
+        flex-direction: column;
+        padding: 20px;
+        border-top: 1px solid #333;
+        z-index: 1000;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-menu li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="nav-container">
+        <a href="index.html" class="logo">ONE2REMEMBER</a>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.html">Main</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="menu-toggle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 12H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 6H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 18H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </nav>
+        <a href="contacts.html" class="button">Message</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="category-buttons">
+    <div class="container">
+      <div class="category-buttons">
+        <div class="category-button purple">MICE</div>
+        <div class="category-button dark">EVENT</div>
+        <div class="category-button dark">BOOKING</div>
+        <div class="category-button dark">CREATIVITY</div>
+        <div class="category-button dark">PRIVATE EVENT</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="heart-section">
+    <div class="container">
+      <h2 class="section-header">
+        <span class="teal">OUR HEART IS</span> <span class="white">MICE</span>
+      </h2>
+      <div class="services-grid">
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Conferences">
+          <div class="overlay purple">Conferences</div>
+        </div>
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Seminars">
+          <div class="overlay teal">Seminars</div>
+        </div>
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Trainings">
+          <div class="overlay purple">Trainings</div>
+        </div>
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Exhibitions">
+          <div class="overlay teal">Visiting exhibitions</div>
+        </div>
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Road Show">
+          <div class="overlay teal">Road Show</div>
+        </div>
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Launches">
+          <div class="overlay purple">Launches</div>
+        </div>
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Support">
+          <div class="overlay teal">Online &Travel support</div>
+        </div>
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Incentives">
+          <div class="overlay purple">Incentives</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soul-section">
+    <div class="container">
+      <h2 class="section-header">
+        <span class="teal">OUR SOUL IS</span> <span class="white">EVENT</span>
+      </h2>
+      <div class="event-grid">
+        <div class="event-card teal">
+          <div class="dots-indicator">
+            <div class="colored-dot teal"></div>
+            <div class="colored-dot purple"></div>
+          </div>
+          <h3>INTERNAL CORPORATE EVENTS</h3>
+          <ul>
+            <li>Company birthdays</li>
+            <li>Professional parties</li>
+            <li>Motivating speakers from of various fields</li>
+            <li>Office events and launches</li>
+            <li>Calendar events</li>
+          </ul>
+        </div>
+        <div class="event-card purple">
+          <div class="dots-indicator">
+            <div class="colored-dot teal"></div>
+            <div class="colored-dot purple"></div>
+          </div>
+          <h3>CLIENT EVENTS</h3>
+          <ul>
+            <li>Launches and presentations</li>
+            <li>Representation at forums, exhibitions, festivals</li>
+            <li>Business breakfasts and partner dinners</li>
+          </ul>
+        </div>
+        <div class="event-card dark">
+          <img src="https://via.placeholder.com/360x240" alt="Events" width="100%">
+        </div>
+        <div class="event-card dark">
+          <div class="dots-indicator">
+            <div class="colored-dot teal"></div>
+            <div class="colored-dot purple"></div>
+          </div>
+          <h3>TEAMBUILDING</h3>
+          <ul>
+            <li>Teambuilding</li>
+            <li>Mind games</li>
+            <li>Creative teambuilding &</li>
+            <li>Master classes</li>
+            <li>Sport competition</li>
+          </ul>
+        </div>
+        <div class="event-card dark">
+          <div class="dots-indicator">
+            <div class="colored-dot teal"></div>
+            <div class="colored-dot purple"></div>
+          </div>
+          <h3>FESTIVALS & OPEN AIR</h3>
+          <ul>
+            <li>Festivals and concerts</li>
+            <li>Family day</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mind-section">
+    <div class="container">
+      <div class="mind-section">
+        <div class="mind-content">
+          <h2 class="section-header">
+            <span class="teal">OUR MIND IS</span> <span class="white">BOOKING</span>
+          </h2>
+          <p>International artists, speakers for event (travel support, performance, riders)</p>
+          <p>Technical equipment for venue</p>
+          <p>Venue selection ans administration</p>
+          <a href="#" class="read-more-button">Read More</a>
+        </div>
+        <div class="mind-image">
+          <img src="https://via.placeholder.com/500x300" alt="Booking">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="forte-section">
+    <div class="container">
+      <h2 class="section-header">
+        <span class="teal">OUR FORTE IS</span> <span class="white">CREATIVITY</span>
+      </h2>
+      <div class="creativity-grid">
+        <div class="creativity-item">
+          <div class="creativity-icon purple">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="white"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Brand concept</h4>
+          </div>
+        </div>
+        <div class="creativity-item">
+          <div class="creativity-icon teal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 15L15.19 12L10 9V15ZM21.56 7.17C21.69 7.64 21.78 8.27 21.84 9.07C21.91 9.87 21.94 10.56 21.94 11.16L22 12C22 14.19 21.84 15.8 21.56 16.83C21.31 17.73 20.73 18.31 19.83 18.56C19.36 18.69 18.5 18.78 17.18 18.84C15.88 18.91 14.69 18.94 13.59 18.94L12 19C7.81 19 5.2 18.84 4.17 18.56C3.27 18.31 2.69 17.73 2.44 16.83C2.31 16.36 2.22 15.73 2.16 14.93C2.09 14.13 2.06 13.44 2.06 12.84L2 12C2 9.81 2.16 8.2 2.44 7.17C2.69 6.27 3.27 5.69 4.17 5.44C4.64 5.31 5.5 5.22 6.82 5.16C8.12 5.09 9.31 5.06 10.41 5.06L12 5C16.19 5 18.8 5.16 19.83 5.44C20.73 5.69 21.31 6.27 21.56 7.17Z" fill="white"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Video and photo production</h4>
+          </div>
+        </div>
+        <div class="creativity-item">
+          <div class="creativity-icon teal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 6H16V4C16 2.89 15.11 2 14 2H10C8.89 2 8 2.89 8 4V6H4C2.89 6 2.01 6.89 2.01 8L2 19C2 20.11 2.89 21 4 21H20C21.11 21 22 20.11 22 19V8C22 6.89 21.11 6 20 6ZM10 4H14V6H10V4ZM20 19H4V8H20V19Z" fill="white"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Creating a corporate identity</h4>
+          </div>
+        </div>
+        <div class="creativity-item">
+          <div class="creativity-icon purple">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM9 17H7V10H9V17ZM13 17H11V7H13V17ZM17 17H15V13H17V17Z" fill="white"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Infographics and presentation creation</h4>
+          </div>
+        </div>
+        <div class="creativity-item">
+          <div class="creativity-icon purple">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7V17C3 18.1 3.9 18.99 5 18.99L16 19C16.67 19 17.27 18.67 17.63 18.16L22 12L17.63 5.84Z" fill="white"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Copywriting</h4>
+          </div>
+        </div>
+        <div class="creativity-item">
+          <div class="creativity-icon teal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6C4.9 2 4.01 2.9 4.01 4L4 20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2ZM16 18H8V16H16V18ZM16 14H8V12H16V14ZM13 9V3.5L18.5 9H13Z" fill="white"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Scenario of events</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pleasure-section">
+    <div class="container">
+      <h2 class="section-header">
+        <span class="teal">OUR PLEASURE IS</span> <span class="white">PRIVATE</span>
+      </h2>
+      <div class="services-grid">
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Conferences">
+          <div class="overlay purple">Conferences</div>
+        </div>
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Seminars">
+          <div class="overlay teal">Seminars</div>
+        </div>
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Trainings">
+          <div class="overlay purple">Trainings</div>
+        </div>
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Exhibitions">
+          <div class="overlay teal">Visiting exhibitions</div>
+        </div>
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Road Show">
+          <div class="overlay teal">Road Show</div>
+        </div>
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Launches">
+          <div class="overlay purple">Launches</div>
+        </div>
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Support">
+          <div class="overlay teal">Online &Travel support</div>
+        </div>
+        <div class="service-item">
+          <img src="https://via.placeholder.com/280x180" alt="Incentives">
+          <div class="overlay purple">Incentives</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="showreel">
+    <div class="container">
+      <h2>SHOW REEL</h2>
+      <div class="showreel-content">
+        <img src="https://via.placeholder.com/1200x300" alt="Showreel">
+        <div class="play-button">
+          <span></span>
+        </div>
+        <div class="watch-me">WATCH ME</div>
+        <div class="dots-indicator" style="position: absolute; top: 20px; right: 20px;">
+          <div class="colored-dot teal"></div>
+          <div class="colored-dot purple"></div>
+          <div class="colored-dot white"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-form">
+        <div class="contact-dots">
+          <div class="colored-dot teal"></div>
+          <div class="colored-dot purple"></div>
+          <div class="colored-dot white"></div>
+        </div>
+        <h3 class="contact-title">YOU GOT EXCITED?</h3>
+        <h3 class="contact-subtitle">LET'S DO IT TOGETHER!</h3>
+        
+        <div class="form-fields">
+          <div>
+            <input type="text" class="form-input" placeholder="Your name">
+          </div>
+          <div>
+            <input type="email" class="form-input" placeholder="Your email">
+          </div>
+          <div class="textarea-field">
+            <textarea class="form-input" placeholder="Your message"></textarea>
+          </div>
+        </div>
+        
+        <div class="contact-info">
+          <p>ceo@o2events.com</p>
+          <p>info@o2events.com</p>
+          <p>+357 96 51250</p>
+        </div>
+        
+        <a href="index.html" class="logo">ONE2REMEMBER</a>
+        
+        <button class="submit-button">SEND</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 ONE2REMEMBER Events. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+      
+      menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
