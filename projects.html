@@ -97,45 +97,70 @@
     }
 
     /* Perfect Event Section */
-    .perfect-event {
-      margin: 40px 0 80px;
-    }
+    /* Perfect Event Section - Updated */
+.perfect-event {
+  margin: 40px 0 80px;
+}
 
-    .perfect-event-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-    }
+.perfect-event-container {
+  display: flex;
+  gap: 30px;
+}
 
-    .event-step {
-      display: flex;
-      margin-bottom: 20px;
-    }
+.perfect-event-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  flex: 2;
+}
 
-    .event-step-content {
-      flex: 2;
-    }
+.event-step {
+  display: flex;
+  margin-bottom: 20px;
+}
 
-    .event-step h3 {
-      color: #b960b0;
-      margin-bottom: 5px;
-      font-size: 18px;
-    }
+.event-step-content {
+  flex: 2;
+}
 
-    .event-step.teal h3 {
-      color: #4ebfb4;
-    }
+.event-step h3 {
+  color: #b960b0;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
 
-    .event-image {
-      flex: 1;
-    }
+.event-step.teal h3 {
+  color: #4ebfb4;
+}
 
-    .event-image img {
-      width: 100%;
-      border-radius: 10px;
-      height: 100%;
-      object-fit: cover;
-    }
+.event-image {
+  flex: 1;
+  align-self: center;
+}
+
+.event-image img {
+  width: 100%;
+  border-radius: 10px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .perfect-event-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .perfect-event-container {
+    flex-direction: column;
+  }
+  
+  .event-image {
+    margin-top: 30px;
+  }
+}
 
     /* Projects section */
     .best-projects {
@@ -521,50 +546,52 @@
 
   <section class="perfect-event">
     <div class="container">
-      <div class="perfect-event-grid">
-        <div class="perfect-event-column">
-          <div class="event-step teal">
-            <div class="event-step-content">
-              <h3>Immerse</h3>
-              <p>Idea creation</p>
+      <div class="perfect-event-container">
+        <div class="perfect-event-grid">
+          <div class="perfect-event-column">
+            <div class="event-step teal">
+              <div class="event-step-content">
+                <h3>Immerse</h3>
+                <p>Idea creation</p>
+              </div>
+            </div>
+            <div class="event-step">
+              <div class="event-step-content">
+                <h3>Concept development</h3>
+                <p>Sketching, blueprint</p>
+              </div>
+            </div>
+            <div class="event-step teal">
+              <div class="event-step-content">
+                <h3>Event architecture</h3>
+                <p>Scriptwriting, modeling</p>
+              </div>
             </div>
           </div>
-          <div class="event-step">
-            <div class="event-step-content">
-              <h3>Concept development</h3>
-              <p>Sketching, blueprint</p>
+          <div class="perfect-event-column">
+            <div class="event-step">
+              <div class="event-step-content">
+                <h3>Action</h3>
+                <p>Live event creation</p>
+              </div>
             </div>
-          </div>
-          <div class="event-step teal">
-            <div class="event-step-content">
-              <h3>Event architecture</h3>
-              <p>Scriptwriting, modeling</p>
+            <div class="event-step teal">
+              <div class="event-step-content">
+                <h3>Emotion</h3>
+                <p>Feedback from Client</p>
+              </div>
+            </div>
+            <div class="event-step">
+              <div class="event-step-content">
+                <h3>Post-production</h3>
+                <p>Our experience in your heart</p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="perfect-event-column">
-          <div class="event-step">
-            <div class="event-step-content">
-              <h3>Action</h3>
-              <p>Live event creation</p>
-            </div>
-          </div>
-          <div class="event-step teal">
-            <div class="event-step-content">
-              <h3>Emotion</h3>
-              <p>Feedback from Client</p>
-            </div>
-          </div>
-          <div class="event-step">
-            <div class="event-step-content">
-              <h3>Post-production</h3>
-              <p>Our experience in your heart</p>
-            </div>
-          </div>
+        <div class="event-image">
+          <img src="images/PostImage2.png" alt="Perfect Event">
         </div>
-      </div>
-      <div class="event-image">
-        <img src="images/events.png" alt="Perfect Event">
       </div>
     </div>
   </section>
