@@ -180,93 +180,145 @@
     .service-item .overlay.teal {
       background-color: rgba(78, 191, 180, 0.9);
     }
+/* Soul/Event Section */
+.soul-section {
+  margin: 80px 0;
+}
 
-    /* Soul is section */
-    .soul-section {
-      margin: 80px 0;
-    }
+.section-header {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
 
-    .event-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
+.section-header .teal {
+  color: #4ebfb4;
+}
 
-    .event-card {
-      border-radius: 10px;
-      overflow: hidden;
-      position: relative;
-    }
+.section-header .white {
+  color: white;
+}
 
-    .event-card.teal {
-      background-color: #4ebfb4;
-    }
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
 
-    .event-card.purple {
-      background-color: #b960b0;
-    }
+.event-card {
+  background-color: #4ebfb4;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
-    .event-card.dark {
-      background-color: #333;
-    }
+.event-card.purple {
+  background-color: #b960b0;
+}
 
-    .event-card h3 {
-      font-size: 24px;
-      padding: 20px 20px 10px 20px;
-    }
+.event-card.dark {
+  background-color: #333;
+}
 
-    .event-card ul {
-      list-style: none;
-      padding: 0 20px 20px 20px;
-    }
+/* Specific style for cards with images */
+.event-card.dark:has(img) {
+  padding: 0; /* Remove padding only for dark cards with images */
+}
 
-    .event-card ul li {
-      margin-bottom: 8px;
-      display: flex;
-      align-items: flex-start;
-    }
+/* Alternative for browsers that don't support :has() */
+.event-card.dark img {
+  border-radius: 10px;
+}
 
-    .event-card ul li::before {
-      content: "•";
-      margin-right: 8px;
-    }
+/* Make sure text cards have proper padding */
+.event-card.dark h3 {
+  margin-top: 0;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
-    .event-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+.event-card.dark ul {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
 
-    .dots-indicator {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      display: flex;
-    }
+.event-card h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
 
-    .colored-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      margin-left: 5px;
-    }
+.event-card ul {
+  list-style: none;
+  margin-top: 15px;
+}
 
-    .colored-dot.teal {
-      background-color: #4ebfb4;
-    }
+.event-card ul li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+}
 
-    .colored-dot.gray {
-      background-color: #1b1d1c;
-    }
+.event-card ul li::before {
+  content: "•";
+  margin-right: 8px;
+}
 
-    .colored-dot.purple {
-      background-color: #b960b0;
-    }
+/* Image handling in event cards */
+.event-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-    .colored-dot.white {
-      background-color: white;
-    }
+.dots-indicator {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 5px;
+}
 
+.colored-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.colored-dot.teal {
+  background-color: #4ebfb4;
+}
+
+.colored-dot.purple {
+  background-color: #b960b0;
+}
+
+.colored-dot.white {
+  background-color: white;
+}
+
+.colored-dot.gray {
+  background-color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+}
     /* Mind is section */
     .mind-section {
       margin: 80px 0;
@@ -597,35 +649,35 @@
       </h2>
       <div class="services-grid">
         <div class="service-item">
-          <img src="images/mice-heart1.png" alt="Conferences" onerror="this.src='https://via.placeholder.com/280x280?text=Conferences'">
+          <img src="images/mice-heart1.png" alt="Conferences" onerror="this.src='images/ERROR.png'">
           <div class="overlay purple">Conferences</div>
         </div>
         <div class="service-item">
-          <img src="images/mice-heart2.png" alt="Seminars" onerror="this.src='https://via.placeholder.com/280x280?text=Seminars'">
+          <img src="images/mice-heart2.png" alt="Seminars" onerror="this.src='images/ERROR.png'">
           <div class="overlay teal">Seminars</div>
         </div>
         <div class="service-item">
-          <img src="images/mice-heart3.png" alt="Trainings" onerror="this.src='https://via.placeholder.com/280x280?text=Trainings'">
+          <img src="images/mice-heart3.png" alt="Trainings" onerror="this.src='images/ERROR.png'">
           <div class="overlay purple">Trainings</div>
         </div>
         <div class="service-item">
-          <img src="images/mice-heart4.png" alt="Exhibitions" onerror="this.src='https://via.placeholder.com/280x280?text=Exhibitions'">
+          <img src="images/mice-heart4.png" alt="Exhibitions" onerror="this.src='images/ERROR.png'">
           <div class="overlay teal">Visiting exhibitions</div>
         </div>
         <div class="service-item">
-          <img src="images/mice-heart5.png" alt="Road Show" onerror="this.src='https://via.placeholder.com/280x280?text=Road+Show'">
+          <img src="images/mice-heart5.png" alt="Road Show" onerror="this.src='images/ERROR.png'">
           <div class="overlay teal">Road Show</div>
         </div>
         <div class="service-item">
-          <img src="images/mice-heart6.png" alt="Launches" onerror="this.src='https://via.placeholder.com/280x280?text=Launches'">
+          <img src="images/mice-heart6.png" alt="Launches" onerror="this.src='images/ERROR.png'">
           <div class="overlay purple">Launches</div>
         </div>
         <div class="service-item">
-          <img src="images/mice-heart7.png" alt="Support" onerror="this.src='https://via.placeholder.com/280x280?text=Online+%26+Travel'">
+          <img src="images/mice-heart7.png" alt="Support" onerror="this.src='images/ERROR.png'">
           <div class="overlay teal">Online &Travel support</div>
         </div>
         <div class="service-item">
-          <img src="images/mice-heart8.png" alt="Incentives" onerror="this.src='https://via.placeholder.com/280x280?text=Incentives'">
+          <img src="images/mice-heart8.png" alt="Incentives" onerror="this.src='images/ERROR.png'">
           <div class="overlay purple">Incentives</div>
         </div>
       </div>
@@ -667,7 +719,10 @@
           </ul>
         </div>
         <div class="event-card dark">
-          <img src="images/events.png" alt="Events" width="100%">
+          <img src="images/events1.png" alt="Events" onerror="this.src='images/ERROR.png'">
+        </div>
+        <div class="event-card dark">
+          <img src="images/events2.png" alt="Events" onerror="this.src='images/ERROR.png'">
         </div>
         <div class="event-card dark">
           <div class="dots-indicator">
@@ -713,7 +768,7 @@
           <a href="#" class="read-more-button">Read More</a>
         </div>
         <div class="mind-image">
-          <img src="images/booking.png" alt="Booking">
+          <img src="images/MindBooking.png" alt="Booking" onerror="this.src='images/ERROR.png'">
         </div>
       </div>
     </div>
@@ -796,35 +851,35 @@
       </h2>
       <div class="services-grid">
         <div class="service-item">
-          <img src="images/conferences.png" alt="Conferences">
+          <img src="images/conferences.png" alt="Conferences"onerror="this.src='images/ERROR.png'">
           <div class="overlay purple">Conferences</div>
         </div>
         <div class="service-item">
-          <img src="images/seminars.png" alt="Seminars">
+          <img src="images/seminars.png" alt="Seminars" onerror="this.src='images/ERROR.png'">
           <div class="overlay teal">Seminars</div>
         </div>
         <div class="service-item">
-          <img src="images/trainings.png" alt="Trainings">
+          <img src="images/trainings.png" alt="Trainings" onerror="this.src='images/ERROR.png'">
           <div class="overlay purple">Trainings</div>
         </div>
         <div class="service-item">
-          <img src="images/exhibitions.png" alt="Exhibitions">
+          <img src="images/exhibitions.png" alt="Exhibitions" onerror="this.src='images/ERROR.png'">
           <div class="overlay teal">Visiting exhibitions</div>
         </div>
         <div class="service-item">
-          <img src="images/roadshow.png" alt="Road Show">
+          <img src="images/roadshow.png" alt="Road Show" onerror="this.src='images/ERROR.png'">
           <div class="overlay teal">Road Show</div>
         </div>
         <div class="service-item">
-          <img src="images/launches.png" alt="Launches">
+          <img src="images/launches.png" alt="Launches" onerror="this.src='images/ERROR.png'">
           <div class="overlay purple">Launches</div>
         </div>
         <div class="service-item">
-          <img src="images/support.png" alt="Support">
+          <img src="images/support.png" alt="Support" onerror="this.src='images/ERROR.png'">
           <div class="overlay teal">Online &Travel support</div>
         </div>
         <div class="service-item">
-          <img src="images/incentives.png" alt="Incentives">
+          <img src="images/incentives.png" alt="Incentives" onerror="this.src='images/ERROR.png'">
           <div class="overlay purple">Incentives</div>
         </div>
       </div>
@@ -837,7 +892,7 @@
       </h2>
       <div class="showreel-content">
         <a href="https://www.youtube.com/watch?v=4tZA5FHB4pw&ab_channel=One2remember">
-          <img src="images/showreel.png" alt="Showreel">
+          <img src="images/showreel.png" alt="Showreel" onerror="this.src='images/ERROR.png'">
         </a>
         <div class="play-button">
           <span></span>

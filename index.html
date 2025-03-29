@@ -672,41 +672,43 @@
       font-weight: normal;
     }
 
-    /* Best projects section */
-    .best-projects {
-      margin: 80px 0;
-    }
+    .project-card {
+  background-color: #4ebfb4;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
-    .best-projects h2 {
-      font-size: 36px;
-      text-align: center;
-      margin-bottom: 40px;
-    }
+.project-card.purple {
+  background-color: #b960b0;
+}
 
-    .project-headline {
-      background-color: #333;
-      border-radius: 10px;
-      overflow: hidden;
-      display: flex;
-      margin-bottom: 20px;
-    }
+.project-card.dark {
+  background-color: #333;
+}
 
-    .project-headline-image {
-      flex: 0 0 250px;
-    }
+/* Specific style for cards with images */
+.project-card.dark:has(img) {
+  padding: 0; /* Remove padding only for dark cards with images */
+}
 
-    .project-headline-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+/* Make sure text cards in the second row have padding */
+.project-card.dark h3 {
+  margin-top: 0;
+  padding-top: 20px; /* Add top padding to match other cards */
+  padding-left: 20px; /* Add left padding to match other cards */
+  padding-right: 20px; /* Add right padding to match other cards */
+}
 
-    .project-headline-content {
-      flex: 1;
-      padding: 20px;
-      position: relative;
-    }
-
+.project-card.dark ul {
+  padding-left: 20px; /* Add left padding to match other cards */
+  padding-right: 20px; /* Add right padding to match other cards */
+  padding-bottom: 20px; /* Add bottom padding to match other cards */
+}
     /* Showreel section */
     .showreel {
       margin: 80px 0;

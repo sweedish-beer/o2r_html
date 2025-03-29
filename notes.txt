@@ -17,3 +17,5 @@
 For: O2PRIVATE.png O2EVENT.png O2BOOKING.png O2CREATIVE.png O2MICE.png
 
 /// aspect ratio 9:16 width 480px, height 800px
+
+onerror="this.src='images/ERROR.png'"
