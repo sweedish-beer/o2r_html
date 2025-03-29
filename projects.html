@@ -687,7 +687,7 @@
       </div>
     </div>
   </section>
-
+  
   <section class="contact-section">
     <div class="container">
       <div class="contact-form">
@@ -699,27 +699,32 @@
         <h3 class="contact-title">YOU GOT EXCITED?</h3>
         <h3 class="contact-subtitle">LET'S DO IT TOGETHER!</h3>
         
-        <div class="form-fields">
-          <div>
-            <input type="text" class="form-input" placeholder="Your name">
+        <form method="post" action="process-form.php">
+          <div class="form-fields">
+            <div>
+              <input type="text" name="name" class="form-input" placeholder="Your name" required>
+            </div>
+            <div>
+              <input type="email" name="email" class="form-input" placeholder="Your email" required>
+            </div>
+            <div>
+              <input type="text" name="subject" class="form-input" placeholder="Subject" required>
+            </div>
+            <div class="textarea-field">
+              <textarea name="message" class="form-input" placeholder="Your message" required></textarea>
+            </div>
           </div>
-          <div>
-            <input type="email" class="form-input" placeholder="Your email">
+          
+          <div class="contact-info">
+            <p>admin@o2r.events</p>
+            <p>info@o2revents.com</p>
+            <p>+357 96 512500</p>
           </div>
-          <div class="textarea-field">
-            <textarea class="form-input" placeholder="Your message"></textarea>
-          </div>
-        </div>
-        
-        <div class="contact-info">
-          <p>ceo@o2events.com</p>
-          <p>info@o2events.com</p>
-          <p>+357 96 51250</p>
-        </div>
-        
-        <a href="#" class="logo">ONE2REMEMBER</a>
-        
-        <button class="submit-button">SEND</button>
+          
+          <a href="index.html" class="logo">ONE2REMEMBER</a>
+          
+          <button type="submit" class="submit-button">SEND</button>
+        </form>
       </div>
     </div>
   </section>

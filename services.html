@@ -705,25 +705,6 @@
             <li>Calendar events</li>
           </ul>
         </div>
-        <div class="event-card purple">
-          <div class="dots-indicator">
-            <div class="colored-dot white"></div>
-            <div class="colored-dot teal"></div>
-            <div class="colored-dot gray"></div>
-          </div>
-          <h3>CLIENT EVENTS</h3>
-          <ul>
-            <li>Launches and presentations</li>
-            <li>Representation at forums, exhibitions, festivals</li>
-            <li>Business breakfasts and partner dinners</li>
-          </ul>
-        </div>
-        <div class="event-card dark">
-          <img src="images/events1.png" alt="Events" onerror="this.src='images/ERROR.png'">
-        </div>
-        <div class="event-card dark">
-          <img src="images/events2.png" alt="Events" onerror="this.src='images/ERROR.png'">
-        </div>
         <div class="event-card dark">
           <div class="dots-indicator">
             <div class="colored-dot white"></div>
@@ -740,6 +721,13 @@
           </ul>
         </div>
         <div class="event-card dark">
+          <img src="images/events1.png" alt="Events" onerror="this.src='images/ERROR.png'">
+        </div>
+        <div class="event-card dark">
+          <img src="images/events2.png" alt="Events" onerror="this.src='images/ERROR.png'">
+        </div>
+       
+        <div class="event-card dark">
           <div class="dots-indicator">
             <div class="colored-dot white"></div>
             <div class="colored-dot teal"></div>
@@ -751,6 +739,21 @@
             <li>Family day</li>
           </ul>
         </div>
+        
+        <div class="event-card purple">
+          <div class="dots-indicator">
+            <div class="colored-dot white"></div>
+            <div class="colored-dot teal"></div>
+            <div class="colored-dot gray"></div>
+          </div>
+          <h3>CLIENT EVENTS</h3>
+          <ul>
+            <li>Launches and presentations</li>
+            <li>Representation at forums, exhibitions, festivals</li>
+            <li>Business breakfasts and partner dinners</li>
+          </ul>
+        </div>
+        
       </div>
     </div>
   </section>
@@ -906,7 +909,7 @@
       </div>
     </div>
   </section>
-
+  
   <section class="contact-section">
     <div class="container">
       <div class="contact-form">
@@ -918,30 +921,32 @@
         <h3 class="contact-title">YOU GOT EXCITED?</h3>
         <h3 class="contact-subtitle">LET'S DO IT TOGETHER!</h3>
         
-        <div class="form-fields">
-          <div>
-            <input type="text" class="form-input" placeholder="Your name">
+        <form method="post" action="process-form.php">
+          <div class="form-fields">
+            <div>
+              <input type="text" name="name" class="form-input" placeholder="Your name" required>
+            </div>
+            <div>
+              <input type="email" name="email" class="form-input" placeholder="Your email" required>
+            </div>
+            <div>
+              <input type="text" name="subject" class="form-input" placeholder="Subject" required>
+            </div>
+            <div class="textarea-field">
+              <textarea name="message" class="form-input" placeholder="Your message" required></textarea>
+            </div>
           </div>
-          <div>
-            <input type="email" class="form-input" placeholder="Your email">
+          
+          <div class="contact-info">
+            <p>admin@o2r.events</p>
+            <p>info@o2revents.com</p>
+            <p>+357 96 512500</p>
           </div>
-          <div>
-            <input type="text" class="form-input" placeholder="Subject">
-          </div>
-          <div class="textarea-field">
-            <textarea class="form-input" placeholder="Your message"></textarea>
-          </div>
-        </div>
-        
-        <div class="contact-info">
-          <p>admin@o2r.events</p>
-          <p>info@o2revents.com</p>
-          <p>+357 96 512500</p>
-        </div>
-        
-        <a href="index.html" class="logo">ONE2REMEMBER</a>
-        
-        <button class="submit-button">SEND</button>
+          
+          <a href="index.html" class="logo">ONE2REMEMBER</a>
+          
+          <button type="submit" class="submit-button">SEND</button>
+        </form>
       </div>
     </div>
   </section>
