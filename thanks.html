@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - ONE2REMEMBER Events</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #1a1a1a;
+      color: white;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header styles */
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      position: relative;
+    }
+
+    /* Thank you section */
+    .thank-you-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 60vh;
+      padding: 60px 20px;
+    }
+
+    .thank-you-card {
+      background-color: #333;
+      border-radius: 10px;
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .thank-you-title {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #4ebfb4;
+    }
+
+    .thank-you-message {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      background-color: #b960b0;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #a04d97;
+    }
+
+    .dots-indicator {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      gap: 5px;
+    }
+
+    .colored-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .colored-dot.teal {
+      background-color: #4ebfb4;
+    }
+
+    .colored-dot.purple {
+      background-color: #b960b0;
+    }
+
+    .colored-dot.white {
+      background-color: white;
+    }
+
+    /* Footer */
+    footer {
+      padding: 20px 0;
+      border-top: 1px solid #333;
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="nav-container">
+        <a href="index.html" class="logo">ONE2REMEMBER</a>
+        <nav>
+          <ul>
+            <li><a href="index.html">Main</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="thank-you-section">
+    <div class="container">
+      <div class="thank-you-card">
+        <div class="dots-indicator">
+          <div class="colored-dot white"></div>
+          <div class="colored-dot teal"></div>
+          <div class="colored-dot purple"></div>
+        </div>
+        <h1 class="thank-you-title">Message Received!</h1>
+        <p class="thank-you-message">Thank you for reaching out to us. Our team will review your message and get back to you soon. We look forward to creating unforgettable experiences together!</p>
+        <a href="index.html" class="button">Return to Homepage</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 ONE2REMEMBER Events. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
