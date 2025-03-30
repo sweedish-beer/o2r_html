@@ -180,6 +180,60 @@
     .service-item .overlay.teal {
       background-color: rgba(78, 191, 180, 0.9);
     }
+
+    /* Wide service item styling */
+  .service-item-wide {
+   position: relative;
+   border-radius: 10px;
+   overflow: hidden;
+   grid-column: span 2;  /* Make it span 2 columns (double width) */
+   aspect-ratio: 2/1;    /* Maintain proper aspect ratio for wider item */
+  }
+
+  .service-item-wide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .service-item-wide .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(185, 96, 176, 0.9);
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .service-item-wide .overlay.teal {
+    background-color: rgba(78, 191, 180, 0.9);
+  }
+
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .services-grid {
+     grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .service-item-wide {
+     grid-column: span 2;  /* Still spans 2 columns on smaller screens */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .services-grid {
+     grid-template-columns: 1fr;
+    }
+  
+    .service-item-wide {
+     grid-column: 1;  /* Full width on very small screens */
+     aspect-ratio: 1/1;  /* Return to square aspect ratio on mobile */
+    }
+  }
+
 /* Soul/Event Section */
 .soul-section {
   margin: 80px 0;
@@ -649,35 +703,35 @@
       </h2>
       <div class="services-grid">
         <div class="service-item">
-          <img src="images/mice-heart1.png" alt="Conferences" onerror="this.src='images/ERROR.png'">
+          <img src="images/conferences.png" alt="Conferences"onerror="this.src='images/ERROR.png'">
           <div class="overlay purple">Conferences</div>
         </div>
         <div class="service-item">
-          <img src="images/mice-heart2.png" alt="Seminars" onerror="this.src='images/ERROR.png'">
+          <img src="images/seminars.png" alt="Seminars" onerror="this.src='images/ERROR.png'">
           <div class="overlay teal">Seminars</div>
         </div>
         <div class="service-item">
-          <img src="images/mice-heart3.png" alt="Trainings" onerror="this.src='images/ERROR.png'">
+          <img src="images/trainings.png" alt="Trainings" onerror="this.src='images/ERROR.png'">
           <div class="overlay purple">Trainings</div>
         </div>
         <div class="service-item">
-          <img src="images/mice-heart4.png" alt="Exhibitions" onerror="this.src='images/ERROR.png'">
+          <img src="images/exhibitions.png" alt="Exhibitions" onerror="this.src='images/ERROR.png'">
           <div class="overlay teal">Visiting exhibitions</div>
         </div>
         <div class="service-item">
-          <img src="images/mice-heart5.png" alt="Road Show" onerror="this.src='images/ERROR.png'">
+          <img src="images/roadshow.png" alt="Road Show" onerror="this.src='images/ERROR.png'">
           <div class="overlay teal">Road Show</div>
         </div>
         <div class="service-item">
-          <img src="images/mice-heart6.png" alt="Launches" onerror="this.src='images/ERROR.png'">
+          <img src="images/launches.png" alt="Launches" onerror="this.src='images/ERROR.png'">
           <div class="overlay purple">Launches</div>
         </div>
         <div class="service-item">
-          <img src="images/mice-heart7.png" alt="Support" onerror="this.src='images/ERROR.png'">
+          <img src="images/support.png" alt="Support" onerror="this.src='images/ERROR.png'">
           <div class="overlay teal">Online &Travel support</div>
         </div>
         <div class="service-item">
-          <img src="images/mice-heart8.png" alt="Incentives" onerror="this.src='images/ERROR.png'">
+          <img src="images/incentives.png" alt="Incentives" onerror="this.src='images/ERROR.png'">
           <div class="overlay purple">Incentives</div>
         </div>
       </div>
@@ -853,37 +907,29 @@
         <span class="teal">OUR PLEASURE IS</span> <span class="white">PRIVATE</span>
       </h2>
       <div class="services-grid">
-        <div class="service-item">
-          <img src="images/conferences.png" alt="Conferences"onerror="this.src='images/ERROR.png'">
-          <div class="overlay purple">Conferences</div>
+        <div class="service-item-wide">
+          <img src="images/wedding.png" alt="Weddings"onerror="this.src='images/ERROR.png'">
+          <div class="overlay purple">Weddings</div>
         </div>
         <div class="service-item">
-          <img src="images/seminars.png" alt="Seminars" onerror="this.src='images/ERROR.png'">
-          <div class="overlay teal">Seminars</div>
+          <img src="images/birthdays.png" alt="Birthdays" onerror="this.src='images/ERROR.png'">
+          <div class="overlay teal">Birthdays</div>
         </div>
         <div class="service-item">
-          <img src="images/trainings.png" alt="Trainings" onerror="this.src='images/ERROR.png'">
-          <div class="overlay purple">Trainings</div>
+          <img src="images/graduation.png" alt="Graduations" onerror="this.src='images/ERROR.png'">
+          <div class="overlay purple">Graduations</div>
         </div>
         <div class="service-item">
-          <img src="images/exhibitions.png" alt="Exhibitions" onerror="this.src='images/ERROR.png'">
-          <div class="overlay teal">Visiting exhibitions</div>
+          <img src="images/famreunion.png" alt="Family Reunion" onerror="this.src='images/ERROR.png'">
+          <div class="overlay teal">Family Reunion</div>
         </div>
         <div class="service-item">
-          <img src="images/roadshow.png" alt="Road Show" onerror="this.src='images/ERROR.png'">
-          <div class="overlay teal">Road Show</div>
+          <img src="images/viptravel.png" alt="Luxury Travel" onerror="this.src='images/ERROR.png'">
+          <div class="overlay purple">VIP Travel</div>
         </div>
-        <div class="service-item">
-          <img src="images/launches.png" alt="Launches" onerror="this.src='images/ERROR.png'">
-          <div class="overlay purple">Launches</div>
-        </div>
-        <div class="service-item">
-          <img src="images/support.png" alt="Support" onerror="this.src='images/ERROR.png'">
-          <div class="overlay teal">Online &Travel support</div>
-        </div>
-        <div class="service-item">
-          <img src="images/incentives.png" alt="Incentives" onerror="this.src='images/ERROR.png'">
-          <div class="overlay purple">Incentives</div>
+        <div class="service-item-wide">
+          <img src="images/culinary.png" alt="Culinary Masterclass" onerror="this.src='images/ERROR.png'">
+          <div class="overlay teal">Culinary Masterclass</div>
         </div>
       </div>
     </div>
