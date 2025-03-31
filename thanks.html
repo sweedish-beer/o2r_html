@@ -4,146 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You - ONE2REMEMBER Events</title>
-  <style>
-    /* Reset and base styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background-color: #1a1a1a;
-      color: white;
-      line-height: 1.5;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Header styles */
-    header {
-      padding: 20px 0;
-      border-bottom: 1px solid #333;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 700;
-      color: white;
-      text-decoration: none;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-    }
-
-    nav ul li {
-      margin-left: 30px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      position: relative;
-    }
-
-    /* Thank you section */
-    .thank-you-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 60vh;
-      padding: 60px 20px;
-    }
-
-    .thank-you-card {
-      background-color: #333;
-      border-radius: 10px;
-      padding: 40px;
-      max-width: 600px;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .thank-you-title {
-      font-size: 32px;
-      margin-bottom: 20px;
-      color: #4ebfb4;
-    }
-
-    .thank-you-message {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .button {
-      background-color: #b960b0;
-      color: white;
-      border: none;
-      padding: 12px 30px;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
-    }
-
-    .button:hover {
-      background-color: #a04d97;
-    }
-
-    .dots-indicator {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      display: flex;
-      gap: 5px;
-    }
-
-    .colored-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-    }
-
-    .colored-dot.teal {
-      background-color: #4ebfb4;
-    }
-
-    .colored-dot.purple {
-      background-color: #b960b0;
-    }
-
-    .colored-dot.white {
-      background-color: white;
-    }
-
-    /* Footer */
-    footer {
-      padding: 20px 0;
-      border-top: 1px solid #333;
-      text-align: center;
-      font-size: 14px;
-      color: #777;
-      margin-top: auto;
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
@@ -151,7 +12,7 @@
       <div class="nav-container">
         <a href="index.html" class="logo">ONE2REMEMBER</a>
         <nav>
-          <ul>
+          <ul class="nav-menu">
             <li><a href="index.html">Main</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="projects.html">Projects</a></li>
@@ -159,7 +20,15 @@
             <li><a href="about.html">About us</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
+          <div class="menu-toggle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 12H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 6H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 18H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
         </nav>
+        <a href="contact.html" class="button">Message</a>
       </div>
     </div>
   </header>
@@ -181,7 +50,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2023 ONE2REMEMBER Events. All rights reserved.</p>
+      <p>&copy; 2025 ONE2REMEMBER Events. All rights reserved.</p>
     </div>
   </footer>
 </body>

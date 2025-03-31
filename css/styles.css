@@ -1,0 +1,681 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #1a1a1a;
+  color: white;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Common color variables */
+:root {
+  --color-purple: #b960b0;
+  --color-purple-hover: #a04d97;
+  --color-teal: #4ebfb4;
+  --color-dark: #333;
+  --color-background: #1a1a1a;
+  --color-white: #fff;
+  --color-gray: #555;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+/* Header styles */
+header {
+  padding: 20px 0;
+  border-bottom: 1px solid #333;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 30px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+nav ul li a.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-purple);
+  bottom: -5px;
+  left: 0;
+}
+
+.button {
+  background-color: var(--color-purple);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--color-purple-hover);
+}
+
+/* Mobile menu styles */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: var(--color-background);
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .nav-menu.active {
+    left: 0;
+  }
+  
+  nav ul li {
+    margin: 20px 0;
+  }
+  
+  .nav-container .button {
+    display: none;
+  }
+}
+
+/* Hero section */
+.hero {
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-image {
+  flex: 1;
+  text-align: right;
+  position: relative;
+}
+
+.hero-card {
+  background-color: #33333300;
+  border-radius: 10px;
+  padding: 5px;
+  display: inline-block;
+  transform: rotate(5deg);
+}
+
+.hero-title {
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.hero-title span {
+  color: var(--color-purple);
+}
+
+.hero-subtitle {
+  font-size: 64px;
+  color: var(--color-teal);
+  font-weight: 900;
+  line-height: 1;
+  margin-top: 0;
+}
+
+/* Company info section */
+.company-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0;
+}
+
+.info-column {
+  flex: 1;
+  margin-right: 30px;
+}
+
+.info-column:last-child {
+  margin-right: 0;
+}
+
+.info-column h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--color-teal);
+}
+
+.info-column p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Services section */
+.services {
+  margin: 80px 0;
+}
+
+h2.section-title {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.services-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* Common card component styles */
+.card {
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-teal {
+  background-color: var(--color-teal);
+}
+
+.card-purple {
+  background-color: var(--color-purple);
+}
+
+.card-dark {
+  background-color: var(--color-dark);
+}
+
+.card-with-padding {
+  padding: 20px;
+}
+
+.card-dark:has(img) {
+  padding: 0; /* Remove padding for dark cards with images */
+}
+
+.card-dark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+.card-dark h3 {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  margin-top: 0;
+}
+
+.card-dark ul, .card-dark p {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+/* Card list styles */
+.card-list {
+  list-style: none;
+  margin-top: 15px;
+}
+
+.card-list li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.card-list li::before {
+  content: "•";
+  margin-right: 8px;
+}
+
+/* Dots indicator styling */
+.dots-indicator {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 5px;
+}
+
+.colored-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.colored-dot.teal {
+  background-color: var(--color-teal);
+}
+
+.colored-dot.purple {
+  background-color: var(--color-purple);
+}
+
+.colored-dot.white {
+  background-color: var(--color-white);
+}
+
+.colored-dot.gray {
+  background-color: var(--color-gray);
+}
+
+/* Grid layouts */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Carousel styles - add after line 359 */
+.services-carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    position: relative;
+  }
+  
+  .services-carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
+  .service-box {
+    flex: 0 0 250px;
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .service-box:hover {
+    transform: translateY(-10px);
+  }
+  
+  .service-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    background-color: #555;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dot.active {
+    background-color: var(--color-purple);
+    width: 14px;
+    height: 14px;
+  }
+  
+  /* For mobile devices - prevent auto-scrolling behavior being triggered by hover */
+  @media (max-width: 768px) {
+    .services-carousel {
+      scroll-snap-type: x mandatory;
+    }
+    
+    .service-box {
+      flex: 0 0 85%;
+      scroll-snap-align: center;
+    }
+  }
+
+/* Section headings */
+.section-header {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.section-header .teal {
+  color: var(--color-teal);
+}
+
+.section-header .white {
+  color: var(--color-white);
+}
+
+/* Standard section margin */
+.standard-section {
+  margin: 80px 0;
+}
+
+/* Button styles */
+.button, .read-more, .read-more-button {
+  background-color: var(--color-purple);
+  color: var(--color-white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover, .read-more:hover, .read-more-button:hover {
+  background-color: var(--color-purple-hover);
+}
+
+.submit-button {
+  background-color: var(--color-white);
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+}
+
+/* Card overlay styles */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(185, 96, 176, 0.9); /* Purple with 90% opacity */
+  padding: 10px;
+  color: var(--color-white);
+  font-weight: bold;
+  text-align: center;
+}
+
+.overlay.teal {
+  background-color: rgba(78, 191, 180, 0.9); /* Teal with 90% opacity */
+}
+
+/* Service items */
+.service-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+}
+
+.service-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-item-wide {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  grid-column: span 2;
+  aspect-ratio: 2/1;
+}
+
+.service-item-wide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Apply common card styles */
+.event-card,
+.project-card,
+.blog-card {
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-card.teal,
+.project-card.teal,
+.blog-card.teal {
+  background-color: var(--color-teal);
+}
+
+.event-card.purple,
+.project-card.purple,
+.blog-card.purple {
+  background-color: var(--color-purple);
+}
+
+.event-card.dark,
+.project-card.dark,
+.blog-card.dark {
+  background-color: var(--color-dark);
+}
+
+.event-card:not(.dark),
+.project-card:not(.dark),
+.blog-card:not(.dark) {
+  padding: 20px;
+}
+
+/* Common flex-layout for content+image cards */
+.flex-card {
+  display: flex;
+  background-color: var(--color-dark);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.flex-card-image {
+  flex: 0 0 40%;
+}
+
+.flex-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flex-card-content {
+  flex: 1;
+  padding: 30px;
+  position: relative;
+}
+
+/* Apply this common style to all flex cards */
+.news-item,
+.about-card,
+.experience-card,
+.featured-project {
+  display: flex;
+  background-color: var(--color-dark);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* Common stylings for card headings */
+.event-card h3,
+.project-card h3,
+.blog-card h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Common styles for all form inputs */
+.form-input {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid var(--color-teal);
+  border-radius: 5px;
+  color: var(--color-white);
+}
+
+textarea.form-input {
+  height: 150px;
+  resize: none;
+}
+
+/* Responsive styles for all pages */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero-image {
+    margin-top: 30px;
+  }
+  
+  .company-info {
+    flex-direction: column;
+  }
+  
+  .info-column {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+  
+  .services-grid,
+  .creativity-grid,
+  .event-grid,
+  .projects-grid,
+  .blog-grid,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .form-fields {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Apply flex-column to all flex-layout cards */
+  .flex-card,
+  .news-item,
+  .about-card,
+  .experience-card,
+  .featured-project,
+  .perfect-event-container,
+  .mind-section {
+    flex-direction: column;
+  }
+  
+  .flex-card-content,
+  .mind-content,
+  .about-content,
+  .experience-content,
+  .featured-content {
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-grid,
+  .creativity-grid,
+  .event-grid,
+  .projects-grid,
+  .blog-grid,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-title,
+  .hero-subtitle {
+    font-size: 42px;
+  }
+  
+  .showreel h2 {
+    font-size: 36px;
+  }
+  
+  .perfect-event-grid {
+    flex-direction: column;
+  }
+}
