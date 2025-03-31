@@ -181,6 +181,11 @@ nav ul li a.active::after {
   margin-top: 0;
 }
 
+/* Fix for the double .hero class in index.html */
+.hero .hero {
+  padding: 0;
+}
+
 /* Company info section */
 .company-info {
   display: flex;
@@ -227,6 +232,177 @@ h2.section-title {
 
 .services-grid::-webkit-scrollbar {
   display: none;
+}
+
+/* Event Grid Styling - for soul-section */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* Blog cards specific styles */
+.blog-card-content {
+  padding: 20px;
+}
+
+/* News section specific styles */
+.news-section {
+  padding: 40px 0;
+}
+
+.news-image {
+  flex: 0 0 250px;
+}
+
+.news-content {
+  padding: 20px;
+}
+
+/* Experience section specific styles */
+.experience-section {
+  padding-bottom: 60px;
+}
+
+.experience-image {
+  flex: 0 0 300px;
+}
+
+.experience-content {
+  padding: 30px;
+}
+
+.experience-highlight, .about-highlight {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--color-purple);
+  margin-bottom: 15px;
+}
+
+.experience-text, .about-text {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+/* About section specific styles */
+.about-section {
+  padding: 60px 0;
+}
+
+.about-image {
+  flex: 0 0 300px;
+}
+
+.about-content {
+  padding: 30px;
+  flex: 1;
+}
+
+.centered-about-card .about-content {
+  text-align: center;
+}
+
+/* Mind section specific styles */
+.mind-section {
+  margin: 80px 0;
+  display: flex;
+  align-items: center;
+}
+
+.mind-content {
+  flex: 1;
+  padding-right: 30px;
+}
+
+.mind-image {
+  flex: 1;
+}
+
+.mind-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Category buttons for services.html */
+.category-buttons {
+  display: flex;
+  gap: 15px;
+  margin: 40px 0;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+/* Creativity section styles */
+.creativity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.creativity-item {
+  background-color: var(--color-dark);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.creativity-icon {
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-purple);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.creativity-icon.teal {
+  background-color: var(--color-teal);
+}
+
+/* Page title styling for project.html */
+.page-title {
+  text-align: center;
+  padding: 60px 0 40px;
+}
+
+.page-title h1 {
+  font-size: 42px;
+  text-transform: uppercase;
+}
+
+/* Showreel section consistent spacing */
+.showreel {
+  margin: 80px 0;
+  position: relative;
+}
+
+/* Featured project specific styles */
+.featured-image {
+  flex: 0 0 180px;
+}
+
+.featured-content {
+  padding: 20px;
+}
+
+/* Contact form section consistent spacing */
+.contact-section {
+  padding: 40px 0;
+}
+
+/* Footer styles */
+footer {
+  padding: 20px 0;
+  border-top: 1px solid #333;
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  margin-top: 20px;
 }
 
 /* Common card component styles */
@@ -601,6 +777,136 @@ textarea.form-input {
   resize: none;
 }
 
+/* Event steps in projects.html */
+.event-step {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.event-step-content {
+  flex: 1;
+}
+
+.event-step h3 {
+  color: var(--color-purple);
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.event-step.teal h3 {
+  color: var(--color-teal);
+}
+
+.event-step p {
+  color: #ccc;
+}
+
+/* Perfect event container and grid */
+.perfect-event-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  flex: 2;
+}
+
+.perfect-event-container {
+  display: flex;
+  gap: 30px;
+}
+
+.event-image {
+  flex: 1;
+  align-self: center;
+}
+
+.event-image img {
+  width: 100%;
+  border-radius: 10px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Projects layout in projects.html */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.project-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 180px;
+}
+
+/* Thank you page styles */
+.thank-you-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 60vh;
+  padding: 60px 20px;
+}
+
+.thank-you-card {
+  background-color: var(--color-dark);
+  border-radius: 10px;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.thank-you-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: var(--color-teal);
+}
+
+.thank-you-message {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: var(--color-white);
+}
+
+/* Load more button in blog.html */
+.load-more-button {
+  background-color: var(--color-purple);
+  color: var(--color-white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 40px auto 0;
+  transition: background-color 0.3s ease;
+}
+
+.load-more-button:hover {
+  background-color: var(--color-purple-hover);
+}
+
+/* Blog intro text */
+.blog-intro {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 40px;
+  max-width: 800px;
+}
+
+/* Section title styles */
+.section-title {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
 /* Responsive styles for all pages */
 @media (max-width: 992px) {
   .hero {
@@ -653,6 +959,10 @@ textarea.form-input {
   .featured-content {
     padding-bottom: 30px;
   }
+
+  .perfect-event-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 576px) {
@@ -677,5 +987,9 @@ textarea.form-input {
   
   .perfect-event-grid {
     flex-direction: column;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }

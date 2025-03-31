@@ -1,0 +1,228 @@
+.sr-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: visible;
+    padding: 40px 0;
+}/* Showreel Component - Matching New Reference Image */
+.showreel-section {
+    background-color: #171717;
+    padding: 60px 0;
+    position: relative;
+    overflow: visible; /* Changed from hidden to visible */
+}
+
+.container {
+    overflow: visible !important; /* Override any container styles that might restrict overflow */
+}
+
+.sr-text-section {
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    width: 50%;
+    float: left;
+}
+
+.sr-title {
+    font-size: 10rem;
+    font-weight: bold;
+    line-height: 0.85;
+    letter-spacing: -3px;
+    color: white;
+    text-transform: uppercase;
+    position: relative;
+}
+
+/* Blue underline beneath "REEL" */
+.sr-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #a42c9600; /* Blue underline */
+}
+
+.sr-video-link {
+    position: absolute;
+    right: -50px; /* Allow it to extend beyond container boundaries */
+    top: 0;
+    z-index: 2;
+    display: block;
+    width: 60%;
+    max-width: 700px;
+    transition: transform 0.3s ease;
+}
+
+.sr-video-link:hover {
+    transform: translateY(-10px);
+}
+
+.sr-video-card {
+    width: 90%;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: perspective(1000px) rotateX(2deg) rotateY(-5deg);
+    transition: transform 0.3s ease;
+    will-change: transform;
+    aspect-ratio: 16/9;
+}
+
+.sr-video-link:hover .sr-video-card {
+    transform: perspective(1000px) rotateX(0) rotateY(0);
+}
+
+.sr-video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sr-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(156, 39, 176, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.sr-video-link:hover .sr-play-button {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: rgba(156, 39, 176, 1);
+}
+
+.sr-play-button::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 18px solid transparent;
+    border-left: 28px solid white;
+    border-bottom: 18px solid transparent;
+    margin-left: 6px;
+}
+
+.sr-watch-text {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+.sr-curved-arrow {
+    position: absolute;
+    left: 30%;
+    bottom: 0;
+    width: 300px;
+    height: 100px;
+    z-index: 3;
+    transform: rotate(0deg);
+}
+
+/* Color dots in top-right corner of card */
+.sr-card-dots {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 6px;
+}
+
+.sr-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.sr-dot.teal {
+    background-color: #4db6ac;
+}
+
+.sr-dot.purple {
+    background-color: #9c27b0;
+}
+
+.sr-dot.white {
+    background-color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .sr-title {
+        font-size: 8rem;
+    }
+    
+    .sr-curved-arrow {
+        left: 35%;
+        width: 250px;
+    }
+}
+
+@media (max-width: 900px) {
+    .sr-title {
+        font-size: 6rem;
+    }
+    
+    .sr-text-section {
+        width: 40%;
+    }
+    
+    .sr-video-link {
+        width: 65%;
+    }
+    
+    .sr-curved-arrow {
+        left: 30%;
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sr-container {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0 60px;
+    }
+    
+    .sr-text-section {
+        width: 100%;
+        float: none;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .sr-title {
+        font-size: 5rem;
+    }
+    
+    .sr-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+    }
+    
+    .sr-video-link {
+        position: relative;
+        width: 90%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .sr-curved-arrow {
+        display: none;
+    }
+}
